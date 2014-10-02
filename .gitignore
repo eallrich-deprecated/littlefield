@@ -1,0 +1,19 @@
+*.py[cod]
+*.swp
+
+# Virtualenv
+bin/
+include/
+lib/
+local/
+
+# Generated images
+*.png
+
+# Downloaded and transformed data
+*.csv
+*.xlsx
+
+# Local config
+config.py
+
