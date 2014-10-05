@@ -8,6 +8,17 @@ from config import credentials, proxy
 class LoginError(RuntimeError):
     pass
 
+
+def cache_cookie(func):
+    result = {}
+    def wrapped():
+        if 'cookies' not in result:
+            result['cookies'] = func()
+        return result['cookies']
+    return wrapped
+
+
+@cache_cookie
 def login():
     """Returns the auth cookie"""
     auth_url = 'http://ops.responsive.net/Littlefield/CheckAccess'
