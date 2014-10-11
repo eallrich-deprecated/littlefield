@@ -7,8 +7,9 @@ include/
 lib/
 local/
 
-# Generated images
+# Generated images and HTML
 *.png
+*.html
 
 # Downloaded and transformed data
 *.csv
