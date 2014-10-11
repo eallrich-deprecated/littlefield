@@ -50,7 +50,7 @@ def plot(rows, x='Day', y=[], filename='plot.png'):
     for day in config.history:
         ax.axvline(x=day, color='orange')
 
-    pyplot.savefig(filename)
+    pyplot.savefig(filename, bbox_inches='tight')
 
 
 def plot_util(rows):
