@@ -6,7 +6,7 @@ template_header = """<html>
 <table>"""
 
 template_footer = """</table>
-<p><a href="latest.csv">Download latest data</a></p>
+<p><a href="production.csv">Download production data</a></p>
 <p><a href="rankings.csv">Download latest rankings</a></p>
 </body>
 </html>"""
