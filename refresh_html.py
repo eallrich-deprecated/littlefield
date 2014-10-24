@@ -1,9 +1,13 @@
+import datetime
 import os
+
+now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 template_header = """<html>
 <head><title>Littlefield Charts</title></head>
 <body>
-<table>"""
+<p>Data last collected: %s</p>
+<table>""" % now
 
 template_footer = """</table>
 <p><a href="production.csv">Download production data</a></p>
