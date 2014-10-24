@@ -1,0 +1,7 @@
+#!/bin/bash
+ROOT=$(dirname $0)
+cd $ROOT
+
+source bin/activate
+
+make rankings >> cron.log
