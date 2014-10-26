@@ -11,9 +11,11 @@ import matplotlib.pyplot as pyplot
 import config
 
 
-def read_csv():
+def read_csv(filename=config.production):
     """Returns a list of dictionaries containing the CSV's data"""
-    with open(config.production, 'rb') as f:
+    if not os.path.exists(filename):
+        return None
+    with open(filename, 'rb') as f:
         reader = csv.DictReader(f)
         # Remove commas so that float() casts work
         return [{k:v.replace(',','') for k,v in row.items()} for row in reader]
@@ -98,6 +100,13 @@ def plot_singles(rows):
         plot(rows, y=names, filename=filename)
 
 
+def plot_rankings(rows):
+    # Use the column names, skipping the timestamp
+    names = rows[0].keys()
+    names.remove('Time')
+    plot(rows, x='Time', y=names, filename='rankings.png')
+
+
 def main():
     rows = read_csv()
     plot_util(rows)
@@ -105,6 +114,12 @@ def main():
     plot_queues(rows)
     plot_jobs_and_util(rows)
     plot_singles(rows)
+
+    rankings = read_csv(config.rankings)
+    if rankings:
+        plot_rankings(rankings)
+    else:
+        print("No rankings data, skipping chart")
 
 
 if __name__ == "__main__":
