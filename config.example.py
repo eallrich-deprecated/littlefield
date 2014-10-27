@@ -11,6 +11,11 @@ credentials = {
 # proxy = {'http': 'http://proxy.example.com:8080'}
 proxy = {}
 
+# Any custom HTTP headers to send with the request. Leave blank to use the defaults.
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7) AppleWebKit/534.48.3 (KHTML, like Gecko) Version/5.1 Safari/534.48.3',
+}
+
 # File for storing ranking data
 rankings = 'rankings.csv'
 

@@ -16,7 +16,7 @@ def download():
     url = "http://ops.responsive.net/Littlefield/Standing"
     cookies = auth.login()
 
-    r = requests.get(url, cookies=cookies, proxies=config.proxy)
+    r = requests.get(url, cookies=cookies, proxies=config.proxy, headers=config.headers)
     if r.status_code == 200:
         return r.text
     else:

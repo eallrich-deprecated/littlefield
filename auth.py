@@ -3,7 +3,7 @@
 
 import requests
 
-from config import credentials, proxy
+from config import credentials, proxy, headers
 
 class LoginError(RuntimeError):
     pass
@@ -23,7 +23,7 @@ def login():
     """Returns the auth cookie"""
     auth_url = 'http://ops.responsive.net/Littlefield/CheckAccess'
 
-    r = requests.post(auth_url, data=credentials, proxies=proxy)
+    r = requests.post(auth_url, data=credentials, proxies=proxy, headers=headers)
     if r.status_code == 200:
         return r.cookies
     else:

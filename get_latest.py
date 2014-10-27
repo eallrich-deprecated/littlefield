@@ -28,7 +28,7 @@ def download(dataset):
     cookies = auth.login()
     print('Processing dataset %s' % dataset)
 
-    r = requests.post(url, data={'data': dataset}, cookies=cookies, proxies=config.proxy)
+    r = requests.post(url, data={'data': dataset}, cookies=cookies, proxies=config.proxy, headers=config.headers)
     if r.status_code != 200:
         message = "Status %r while getting dataset '%s'. Text: %s" % (r.status_code, dataset, r.text)
         raise DownloadError(message)
