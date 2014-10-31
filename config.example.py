@@ -39,6 +39,16 @@ datasets = (
     ('JOBREV', 'Revenue Per Job'),
 )
 
+# These datasets are affected by the choice of oder contract. By Default, only
+# the first 'set' of data is retrieved for each name. When multiple contracts
+# are available, contracts other than the default appear under their own 'sets'
+# and require special handling.
+multisets = (
+    'JOBOUT',
+    'JOBT',
+    'JOBREV',
+)
+
 # As you perform actions, update this tuple with the days of events
 # E.g. history = (55, 71, 91, 211, 213)
 history = ()
